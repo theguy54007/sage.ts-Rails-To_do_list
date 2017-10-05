@@ -1,0 +1,16 @@
+<div class="container">
+<table class= "table table-striped">
+  <tr>
+    <td><h1><%= @task.name %><h1></td>
+  </tr>
+  <tr>
+    <td><strong><%= "Due Date: "%></strong>
+      <%= @task.due_date%></td>
+  </tr>
+  <tr>
+    <td><strong><%= "Description"%></strong>
+      <%= simple_format(@task.description) %></td>
+  </tr>
+</table>
+    <%= link_to 'Back to index', tasks_path%>
+</div>

@@ -1,0 +1,25 @@
+<table class= "table table-striped table-condensed">
+  <tr>
+    <th><%= "Task"%></th>
+    <th><%= "Due Date"%></th>
+    <th><%= "Options"%></th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.name%></td>
+      <td><%= task.due_date%></td>
+      <td><%= link_to 'Show', task_path(task) %>
+          <%= link_to 'Edit', edit_task_path(task) %>
+          <%if task.due_date > Time.now %>
+        <%= link_to 'Destroy', task_path(task),  method: :delete, data:{ confirm: "Are you sure?" } %>
+          <% else %>
+        <%= link_to 'Destroy', task_path(task),  method: :delete, data:{ confirm: "It is outdate!" } %>
+          <% end %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+
+<%= link_to 'New Task', new_task_path %>
